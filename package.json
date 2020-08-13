@@ -34,7 +34,8 @@
   "dependencies": {
     "express": "^4.17.1",
     "express-handlebars": "^5.1.0",
-    "git": "^0.1.5"
+    "git": "^0.1.5",
+    "mongoose": "^5.9.28"
   },
   "devDependencies": {
     "husky": "^4.2.5",
