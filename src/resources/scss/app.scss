@@ -2,17 +2,22 @@
 
 // On Scroll Header
 .navbar {
-    position: fixed;
-    min-width: 100%;
-    box-sizing: border-box;
-    z-index: 999;
-}
-.sticky {
-    position: fixed;
-    top: 0;
+    // position: fixed;
     width: 100%;
+    left: 0;
+    z-index: 24;
 }
-//
+// .sticky {
+//   position: fixed;
+//   top: 0;
+//   width: 100%;
+// }
+
+.container {
+    width: 100%;
+    max-width: 1224px;
+    margin: 0 auto;
+}
 
 .fullStack-logo {
     width: 145px;
@@ -24,7 +29,7 @@
     font-weight: 600;
 }
 .card-course-item {
-    margin-right: 16px;
+    margin-right: 21px;
     margin-bottom: 16px;
     display: inline-flex;
 }
@@ -54,9 +59,10 @@
 }
 
 // Img home
-// .img-home {
-//   width: 100%;
-// }
+.img-home {
+    position: relative;
+    width: 100%;
+}
 
 // .overlay-img {
 //   // display: none;
@@ -70,3 +76,75 @@
 //   background-color: rgb(0, 0, 0);
 //   background-color: rgba(0, 0, 0, 0.4);
 // }
+
+.button-learnNow {
+    width: 180px;
+    height: 40px;
+
+    border-radius: 10px;
+    border: none;
+
+    cursor: pointer;
+    color: white;
+    background-color: #369f39;
+
+    font-weight: 500;
+    margin: 10px 0 15px;
+}
+
+.CourseDetail {
+    margin-bottom: 28px;
+    background: #f5f5f5;
+    padding: 20px 10px 20px 15px;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.CourseDetail img {
+    width: 135px;
+    height: 135px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    margin: 0 auto;
+}
+.CourseDetail h5 {
+    margin: 10px;
+}
+.CourseDetail_rating {
+    margin-bottom: 20px;
+    color: rgb(255, 180, 0);
+}
+.CourseDetail ul {
+    padding: 0;
+}
+.CourseDetail li {
+    list-style: none;
+    margin-bottom: 10px;
+    color: #444;
+}
+.CourseDetail i {
+    padding-right: 10px;
+}
+
+.CourseDetail-courseShortInfo {
+    margin-top: 40px;
+    display: flex;
+}
+.CourseDetail-courseShortInfo li {
+    list-style: none;
+
+    width: 33.33333%;
+    text-align: center;
+    margin-bottom: 50px;
+}
+.CourseDetail-courseShortInfo i {
+    font-size: 30px;
+    color: rgba(240, 81, 35, 0.6);
+}
+
+.CourseDetail-courseShortInfo p {
+    font-size: 1.1rem;
+    margin-top: 12px;
+    margin-bottom: 8px;
+}

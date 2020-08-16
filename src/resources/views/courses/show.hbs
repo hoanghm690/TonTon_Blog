@@ -1,18 +1,82 @@
 <div class="mt-4">
     <div class="row">
         <div class="col-lg-3">
-            <button>HỌC NGAY</button>
-            <ul>
-                <li>{{course.level}}</li>
-            </ul>
+            <div class="CourseDetail">
+                <h4>MIỄN PHÍ</h4>
+                <button class="button-learnNow">HỌC NGAY</button>
+                <ul>
+                    <li>
+                        <i class="fas fa-file-code"></i>
+                        {{course.level}}
+                    </li>
+                    <li>
+                        <i class="fas fa-clock"></i>
+                        Cần 0.37 giờ để học
+                    </li>
+                    <li>
+                        <i class="fas fa-battery-full"></i>
+                        Truy cập mọi lúc, mọi nơi
+                    </li>
+                </ul>
+            </div>
+            <div class="CourseDetail">
+                <img src="https://pbs.twimg.com/ext_tw_video_thumb/1074962810344333312/pu/img/NYJnU9TPVgpVwE6E.jpg"
+                    alt="">
+                <h5>TonTon</h5>
+                <p>Fighting, don't give up!</p>
+                <div class="CourseDetail_rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <ul>
+                    <li>
+                        <i class="fas fa-comments"></i>
+                        1 tỷ Hỏi đáp
+                    </li>
+                    <li>
+                        <i class="fas fa-heartbeat"></i>
+                        + 1 Quan tâm
+                    </li>
+
+                </ul>
+                <button class="button-learnNow">XEM CHI TIẾT</button>
+            </div>
         </div>
 
         <div class="col-lg-9">
-            <h2>{{course.name}}</h2>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/{{course.videoId}}" frameborder="0"
+            <h2 style="margin-bottom: 20px">{{course.name}}</h2>
+            <iframe width="100%" height="460" src="https://www.youtube.com/embed/{{course.videoId}}" frameborder="0"
                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen></iframe>
+
+            <ul class="CourseDetail-courseShortInfo">
+                <li>
+                    <i class="fas fa-clock"></i>
+                    <p>Thời lượng</p>
+                    <span>
+                        24 Giờ
+                    </span>
+                </li>
+                <li>
+                    <i class="fas fa-clock"></i>
+                    <p>Danh mục</p>
+                    <span>
+                        Kiến thức chung
+                    </span>
+                </li>
+                <li>
+                    <i class="fas fa-star"></i>
+                    <p>Đánh giá</p>
+                    <span>
+                        5(1m)
+                    </span>
+                </li>
+            </ul>
             <p>{{course.description}}</p>
+
         </div>
     </div>
 </div>
