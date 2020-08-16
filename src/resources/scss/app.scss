@@ -1,7 +1,18 @@
 @import 'variables';
 
+.fullStack-logo {
+    width: 145px;
+    height: 35px;
+}
+.navbar-brand {
+    margin: 0 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+}
 .card-course-item {
+    margin-right: 16px;
     margin-bottom: 16px;
+    display: inline-flex;
 }
 
 .user-avatar {
@@ -9,4 +20,21 @@
     height: 28px;
     border-radius: 50%;
     margin-right: 4px;
+}
+
+.list-group h5 {
+    font-size: 1.1rem;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+.list-group a {
+    color: #666;
+    font-size: 1rem;
+    text-decoration: none;
+}
+.list-group-item:hover .list-group-link {
+    display: block;
+    color: orangered;
+    transform: translateX(10px);
+    transition: transform 0.3s ease-in-out;
 }

@@ -12,5 +12,15 @@ class MeController {
             )
             .catch(next);
     }
+    // [GET] /me/stored/news
+    storedNews(req, res, next) {
+        Course.find({})
+            .then((courses) =>
+                res.render('me/stored-news', {
+                    courses: mutipleMongooseToObject(courses),
+                }),
+            )
+            .catch(next);
+    }
 }
 module.exports = new MeController();
