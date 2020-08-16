@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav id="myHeader" class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
         <a href="/">
             <img src="https://fullstack.edu.vn/assets/images/f8_text_logo.png" alt="" class="fullStack-logo">
@@ -30,7 +30,22 @@
                     </div>
                 </li>
             </ul>
-
         </div>
     </div>
 </nav>
+
+{{!-- On Scroll Header --}}
+<script>
+    window.onscroll = function () { myFunction() };
+
+    var header = document.getElementById("myHeader");
+    var sticky = header.offsetTop;
+
+    function myFunction() {
+        if (window.pageYOffset > sticky) {
+            header.classList.add("sticky");
+        } else {
+            header.classList.remove("sticky");
+        }
+    }
+</script>
