@@ -1,30 +1,111 @@
-{{!-- <div class="mt-4">
-    <div class="row">
-        {{#each courses}}
-        <div class="col-sm-6 col-lg-4">
-            <div class="card card-course-item" style="width: 22rem;">
-                <a href="/courses/{{this.slug}}">
-                    <img class="card-img-top" src="{{this.image}}" alt="{{this.name}}">
+<div id="slides" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ul class="carousel-indicators">
+        <li data-target="#slides" data-slide-to="0" class="active"></li>
+        <li data-target="#slides" data-slide-to="1"></li>
+        <li data-target="#slides" data-slide-to="2"></li>
+    </ul>
+    <!-- The slideshow -->
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="https://i.imgur.com/DGogkhF.jpg" alt="Los Angeles">
+            <div class="carousel-caption">
+                <h1 class="display-2">CỘNG ĐỒNG HỌC LẬP TRÌNH</h1>
+                <h5>Học lập trình qua thực hành thực tế với các khóa học chất lượng</h5>
+                <a href="/courses">
+                    <button type="button" class="btn btn-outline-light btn-lg">
+                        KHÓA HỌC
+                    </button>
                 </a>
-                <div class="card-body">
-                    <a href="/courses/{{this.slug}}">
-                        <h5 class="card-title">{{this.name}}</h5>
-                    </a>
-                    <p class="card-text">{{this.description}}</p>
-                    <a href="#" class="btn btn-primary">Mua khóa học</a>
-                </div>
+                <button type="button" class="btn btn-primary btn-lg">
+                    THAM GIA NGAY
+                </button>
             </div>
         </div>
-        {{/each}}
+        <div class="carousel-item">
+            <img src="https://st.quantrimang.com/photos/image/2018/10/01/anh-nen-full-hd-cho-may-tinh-1.jpg"
+                alt="Chicago">
+        </div>
+        <div class="carousel-item">
+            <img src="https://i.pinimg.com/originals/6c/be/5a/6cbe5ad225882b98d002ca52a9202193.jpg" alt="New York">
+        </div>
     </div>
+    <!-- Left and right controls -->
+    <a class="carousel-control-prev" href="#slides" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#slides" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </a>
+</div>
 
-</div> --}}
-
-
-<div class="mt-4">
-    <div class="row">
+<div class="container">
+    <div class="row welcom text-center">
         <div class="col-12">
-            <img src="https://fullstack.edu.vn/assets/images/home-img.jpg" alt="" class="img-home">
+            <h1 class="display-6">
+                Xây dựng ứng dụng của bạn
+            </h1>
+        </div>
+        <div class="col-12">
+            <p>Thêm một chút bền bỉ, một chút nỗ lực, và điều tưởng chừng như là thất bại vô vọng có thể biến thành
+                thành công rực rỡ</p>
+        </div>
+        <hr>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row text-center padding">
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <i class="fab fa-react"></i>
+            <h3>REACT</h3>
+            <p>Xây dựng phiên bản phản ứng mới nhất</p>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <i class="fab fa-angular"></i>
+            <h3>REACT</h3>
+            <p>Xây dựng trang web và ứng dụng giao diện người dùng của bạn</p>
+        </div>
+        <div class="col-sm-12 col-md-4">
+            <i class="fab fa-css3"></i>
+            <h3>CSS3, HTML5</h3>
+            <p>Tùy chỉnh giao diện người dùng web của bạn với CSS3 và HTML5</p>
         </div>
     </div>
 </div>
+
+
+{{!-- <div class="container">
+    <div class="row welcom text-center">
+        <div class="col-12">
+            <h1 class="display-6">
+                Khoá học nổi bật
+            </h1>
+        </div>
+        <div class="col-12">
+            <p>Những khóa học có số lượng học viên theo học nhiều nhất và có phản hồi tích cực nhất</p>
+        </div>
+    </div>
+
+    <div class="mt-4">
+        <div class="row">
+            {{#each courses}}
+            <div class="col-sm-6 col-lg-4">
+                <div class="card card-course-item" style="width: 22rem;">
+                    <a href="/courses/{{this.slug}}">
+                        <img class="card-img-top" src="{{this.image}}" alt="{{this.name}}">
+                    </a>
+                    <div class="card-body">
+                        <a href="/courses/{{this.slug}}">
+                            <h5 class="card-title">{{this.name}}</h5>
+                        </a>
+                        <p class="card-text">{{this.description}}</p>
+                        <a href="#" class="btn btn-primary">Mua khóa học</a>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+
+    </div>
+</div> --}}

@@ -1,10 +1,11 @@
-<nav id="myHeader" class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav id="myHeader" class="navbar navbar-expand-md navbar-light bg-light sticky-top">
     <div class="container">
-        <a href="/">
-            <img src="https://fullstack.edu.vn/assets/images/f8_text_logo.png" alt="" class="fullStack-logo">
+        <a class="navbar-branch" href="/">
+            <img src="https://www.tonton-andre.com/wp-content/uploads/2020/07/cropped-Tonton-Andre%CC%81-logo-Jaune-Gris.png"
+                alt="" class="fullStack-logo" height="50">
         </a>
-        <a class="navbar-brand" href="/">TRANG CHỦ</a>
-        <a class="navbar-brand" href="/courses">KHÓA HỌC</a>
+        <a class="navbar-brand" href="/" style="color: white">TRANG CHỦ</a>
+        <a class="navbar-brand" href="/courses" style="color: white">KHÓA HỌC</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -14,7 +15,7 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white">
                         <img src="https://avatars2.githubusercontent.com/u/67463412?s=60&v=4" alt=""
                             class="user-avatar">
                         TonTon
@@ -33,19 +34,3 @@
         </div>
     </div>
 </nav>
-
-{{!-- On Scroll Header --}}
-<script>
-    window.onscroll = function () { myFunction() };
-
-    var header = document.getElementById("myHeader");
-    var sticky = header.offsetTop;
-
-    function myFunction() {
-        if (window.pageYOffset > sticky) {
-            header.classList.add("sticky");
-        } else {
-            header.classList.remove("sticky");
-        }
-    }
-</script>
