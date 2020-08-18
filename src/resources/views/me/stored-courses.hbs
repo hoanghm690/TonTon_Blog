@@ -4,11 +4,9 @@
             <h3>Khóa học của tôi</h3>
             <a style="text-decoration: none; color: #333" href="/me/trash/courses">
                 <i class="fas fa-trash"></i>
-                Thùng rác
+                Thùng rác ({{deletedCount}})
             </a>
-
         </div>
-
         <table class="table mt-4">
             <thead>
                 <tr>
@@ -37,7 +35,6 @@
                         Bạn chưa đăng khóa học nào.
                         <a href="/courses/create">Đăng khóa học</a>
                     </td>
-
                 </tr>
                 {{/each}}
             </tbody>
@@ -64,7 +61,6 @@
             </div>
         </div>
     </div>
-
 </div>
 {{!-- Delete hidden form --}}
 <form method="POST" name="delete-course-form"></form>
