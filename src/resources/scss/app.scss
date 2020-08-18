@@ -10,21 +10,33 @@ body {
 .navbar {
     width: 100%;
     left: 0;
-    background-color: rgba(82, 64, 120, 0.9) !important;
+    background-color: #000 !important;
     z-index: 24;
 }
-
+.NavBar_themeMainMenu {
+    margin: 0 0 0 4rem;
+}
+.NavBar_themeMainMenu .nav-item {
+    margin: 0 2rem 0 0;
+}
+.container .navbar-brand,
+.nav-link {
+    color: white !important;
+}
+.nav-item .nav-link {
+    font-size: 1rem;
+    font-weight: 600;
+}
+.navbar-branch img {
+    width: 150px;
+    height: 40px;
+}
 .container {
     width: 100%;
     max-width: 1224px;
     margin: 0 auto;
 }
 
-.navbar-brand {
-    margin: 0 2rem;
-    font-size: 1rem;
-    font-weight: 600;
-}
 .card-course-item {
     margin-right: 21px;
     margin-bottom: 30px;
@@ -78,12 +90,18 @@ body {
     margin: 20px;
 }
 .btn-primary {
-    background-color: rgb(82, 64, 120);
+    background-color: #f05123;
     border: 1px solid white;
 }
-.btn-primary:hover {
-    background-color: rgb(62, 64, 100);
+.carousel-caption .btn-primary:hover {
+    background-color: white;
+    color: #f05123;
     border: 1px solid white;
+}
+.carousel-caption .btn-primary:focus {
+    box-shadow: 0 0 0 0.2rem rgba(248, 249, 250, 0.5);
+    background-color: white !important;
+    color: #f05123 !important;
 }
 .welcom h1 {
     margin-top: 4rem;
@@ -114,6 +132,16 @@ body {
 }
 
 // Courses Show
+.card-body a {
+    text-decoration: none;
+}
+
+.card-title {
+    color: #444;
+}
+.card-title:hover {
+    color: #f47425;
+}
 .button-learnNow {
     width: 180px;
     height: 40px;
@@ -123,7 +151,7 @@ body {
 
     cursor: pointer;
     color: white;
-    background-color: #369f39;
+    background-color: #f05123;
 
     font-weight: 500;
     margin: 10px 0 15px;
@@ -188,14 +216,15 @@ body {
 
 // Footer
 .footer {
-    background-color: rgba(82, 64, 120, 0.9);
+    background-color: #000;
     color: white;
 }
 .footer.container {
     display: flex;
 }
 .btn-registration {
-    background-color: #fff;
+    background-color: #f05123;
+    color: white;
     border-radius: 20px;
     margin-top: 10px;
 
@@ -208,12 +237,18 @@ body {
     font-size: 1.2rem;
     font-weight: 500;
 }
+.btn-registration:hover {
+    color: #f05123;
+    background-color: white;
+}
 .col-md-3 p,
 .col-md-2 p {
     font-size: 16px;
     line-height: 22px;
+    color: hsla(0, 0%, 100%, 0.7);
 }
 .col-md-3 img {
+    width: 200px;
     height: 60px;
 }
 .col-md-3 input {
