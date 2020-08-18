@@ -6,7 +6,7 @@ body {
     height: 100%;
     color: #222;
 }
-// On Scroll Header
+
 .navbar {
     width: 100%;
     left: 0;
@@ -27,7 +27,7 @@ body {
 }
 .card-course-item {
     margin-right: 21px;
-    margin-bottom: 16px;
+    margin-bottom: 30px;
     display: inline-flex;
 }
 
@@ -109,7 +109,11 @@ body {
     margin: 1rem;
     color: #d76537;
 }
+.introduction {
+    margin: 20px 0 60px 0;
+}
 
+// Courses Show
 .button-learnNow {
     width: 180px;
     height: 40px;
@@ -143,9 +147,7 @@ body {
     border-radius: 50%;
     margin: 0 auto;
 }
-.CourseDetail h5 {
-    margin: 10px;
-}
+
 .CourseDetail_rating {
     margin-bottom: 20px;
     color: rgb(255, 180, 0);
@@ -184,9 +186,13 @@ body {
     margin-bottom: 8px;
 }
 
+// Footer
 .footer {
     background-color: rgba(82, 64, 120, 0.9);
     color: white;
+}
+.footer.container {
+    display: flex;
 }
 .btn-registration {
     background-color: #fff;
@@ -202,11 +208,14 @@ body {
     font-size: 1.2rem;
     font-weight: 500;
 }
-.col-md-3,
-.col-md-2 {
-    margin: 50px 0;
+.col-md-3 p,
+.col-md-2 p {
+    font-size: 16px;
+    line-height: 22px;
 }
-
+.col-md-3 img {
+    height: 60px;
+}
 .col-md-3 input {
     outline: none;
     border: none;
