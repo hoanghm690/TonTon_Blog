@@ -11,6 +11,7 @@ class CourseController {
             )
             .catch(next);
     }
+
     // [GET] /courses/create
     create(req, res, next) {
         res.render('courses/create');
@@ -51,6 +52,7 @@ class CourseController {
             .then(() => res.redirect('back'))
             .catch(next);
     }
+
     // [PATCH] /courses/:id/restore
     restore(req, res, next) {
         Course.restore({ _id: req.params.id })
