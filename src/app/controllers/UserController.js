@@ -1,6 +1,14 @@
+// if (process.env.NODE_ENV !== "production") {
+//   require("dotenv").config();
+// }
+
 const Course = require('../models/Course');
 const User = require('../models/User');
-//   [GET] /register
+
+const bcrypt = require('bcryptjs');
+const passport = require('passport');
+
+// const users = [];
 
 class UserController {
     //   [GET] /users/register
@@ -14,39 +22,100 @@ class UserController {
     //   [POST] /users/register
 
     signup(req, res) {
-        const { name, email, password, confirmPassword } = req.body;
-        let errors = [];
+        const today = new Date();
+        const userData = {
+            name: req.body.name,
+            email: req.body.email,
+            password: req.body.password,
+            created: today,
+        };
 
-        //   Check required fields
-        if (!name || !email || !password || !confirmPassword) {
-            errors.push({ message: 'Please fill in all fields' });
-        }
-        // Check password match
-        if (password !== password) {
-            {
-                errors.push({ message: 'Password do not match' });
-            }
-        }
-        // Check pass length
-        if (password.length < 6) {
-            errors.push({
-                message: 'Password should be at least 6 characters',
+        User.findOne({
+            email: req.body.email,
+        })
+            .then((user) => {
+                if (!user) {
+                    bcrypt.hash(req.body.password, 10, (error, hash) => {
+                        userData.password = hash;
+                        User.create(userData)
+                            .then((user) => {
+                                res.redirect('/users/login');
+                                // res.json({ status: user.email + "Registered!" });
+                            })
+                            .catch((error) => {
+                                res.send('error: ' + error);
+                            });
+                    });
+                } else {
+                    res.json({ error: 'User already exists' });
+                }
+            })
+            .catch((error) => {
+                res.send('error: ' + error);
             });
-        }
-
-        if (errors.length > 0) {
-            res.render('users/register', {
-                errors,
-                name,
-                email,
-                password,
-                confirmPassword,
-            });
-        } else {
-            res.send('pass');
-        }
+        // try {
+        //   const hashedPassword = bcrypt.hash(req.body.password, 10);
+        //   users.push({
+        //     id: Date.now().toString(),
+        //     name: req.body.name,
+        //     email: req.body.email,
+        //     password: req.body.password,
+        //   });
+        //   res.redirect("/user/login");
+        // } catch {
+        //   res.redirect("/user/register");
+        // }
+        // req.body.email;
     }
-    signin(req, res) {}
+
+    signin(req, res) {
+        User.findOne({
+            email: req.body.email,
+        })
+            .then((user) => {
+                if (user) {
+                    if (bcrypt.compareSync(req.body.password, user.password)) {
+                        // Password match
+                        const payload = {
+                            _id: user._id,
+                            name: user.name,
+                            email: user.email,
+                        };
+                        let token = jwt.sign(payload, process.env.SECRET_KEY, {
+                            expires: 1440,
+                        });
+                        res.send(token);
+                    } else {
+                        // Password don't match
+                        res.json({ error: 'User does not exists' });
+                    }
+                } else {
+                    res.json({ error: 'User does not exist' });
+                }
+            })
+            .catch((error) => {
+                res.send('error: ' + error);
+            });
+    }
+    profile(req, res) {
+        const decoded = jwt.verify(
+            req.headers['authorization'],
+            process.env.SECRET_KEY,
+        );
+        User.findOne({
+            _id: decoded._id,
+        })
+            .then((user) => {
+                if (user) {
+                    res.json(user);
+                } else {
+                    res.send('User does not exist');
+                }
+            })
+            .catch((error) => {
+                res.send('error: ' + error);
+            });
+    }
 }
 
 module.exports = new UserController();
