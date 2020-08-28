@@ -37,11 +37,23 @@ body {
 }
 
 .card-course-item {
+    width: 17rem;
     margin-right: 21px;
     margin-bottom: 30px;
     display: inline-flex;
 }
-
+.card-course-item a {
+    position: relative;
+    overflow: hidden;
+}
+.card-img-top {
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+}
+.card-img-top:hover {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+}
 .user-avatar {
     width: 28px;
     height: 28px;
@@ -134,13 +146,13 @@ body {
 .card-body a {
     text-decoration: none;
 }
-
 .card-title {
     color: #444;
 }
 .card-title:hover {
     color: #f47425;
 }
+
 .button-learnNow {
     width: 180px;
     height: 40px;
@@ -235,6 +247,9 @@ body {
 
     font-size: 1.2rem;
     font-weight: 500;
+}
+.footer-introduce-link:hover {
+    color: #f05123;
 }
 .btn-registration:hover {
     color: #f05123;
