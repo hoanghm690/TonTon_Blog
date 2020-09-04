@@ -247,6 +247,25 @@ body {
     display: flex;
     justify-content: space-around;
 }
+.Comment_contentHeading {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+
+    position: relative;
+    width: 100%;
+    min-height: 100px;
+}
+.Comment_contentHeading a {
+    text-decoration: none;
+}
+.Comment_contentHeading h4 {
+    margin: 0;
+}
+.Comment_contentHeading i {
+    font-size: 24px;
+    margin-left: 10px;
+}
 // Footer
 .footer {
     background-color: #000;
