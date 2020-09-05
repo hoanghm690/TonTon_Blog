@@ -18,7 +18,7 @@
                     <option value="restore">Khôi phục</option>
                     <option value="deleteForce">Xóa vĩnh viễn</option>
                 </select>
-                <button class="btn btn-primary btn-sm check-all-submit-btn disabled">Thực hiện</button>
+                <button class="btn btn-primary btn-sm check-all-submit-btn" disabled>Thực hiện</button>
             </div>
         </div>
         <table class="table mt-4">
@@ -134,22 +134,14 @@
             renderCheckAllSubmitBtn();
         });
 
-        //Check all submit button clicked
-        checkAllSubmitBtn.on("submit", function (e) {
-            var isSubmitable = !$(this).hasClass("disabled");
-            if (!isSubmitable) {
-                e.preventDefault();
-            }
-        });
-
         //Re-render checked all submit button
         function renderCheckAllSubmitBtn() {
             var checkedCount = $('input[name = "courseIds[]"]:checked').length;
             if (checkedCount > 0) {
-                checkAllSubmitBtn.removeClass("disabled");
+                checkAllSubmitBtn.removeAttr("disabled");
             }
             else {
-                checkAllSubmitBtn.addClass("disabled");
+                checkAllSubmitBtn.addAttr("disabled");
             }
         }
     })
