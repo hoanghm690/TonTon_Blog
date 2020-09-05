@@ -125,10 +125,10 @@
         function renderCheckAllSubmitBtn() {
             var checkedCount = $('input[name = "courseIds[]"]:checked').length;
             if (checkedCount > 0) {
-                checkAllSubmitBtn.removeAttr("disabled");
+                checkAllSubmitBtn.attr("disabled", false);
             }
             else {
-                checkAllSubmitBtn.addAttr("disabled");
+                checkAllSubmitBtn.attr("disabled", true);
             }
         }
     });    
