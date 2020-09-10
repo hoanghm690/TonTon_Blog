@@ -20,7 +20,10 @@ class CourseController {
     store(req, res, next) {
         req.body.image = `https://img.youtube.com/vi/${req.body.videoId}/sddefault.jpg`;
         const course = new Course(req.body);
-        course.save().then(() => res.redirect('/me/stored/courses'));
+        course
+            .save()
+            .then(() => res.redirect('/me/stored/courses'))
+            .catch(next);
     }
 
     // [GET] /courses/:id/edit
