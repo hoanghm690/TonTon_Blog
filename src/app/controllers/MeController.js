@@ -29,6 +29,7 @@ class MeController {
     // [GET] /me/trash/courses
     trashCourses(req, res, next) {
         Course.findDeleted({})
+            .sortable(req)
             .then((courses) =>
                 res.render('me/trash-courses', {
                     courses: mutipleMongooseToObject(courses),
