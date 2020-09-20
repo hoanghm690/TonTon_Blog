@@ -1,29 +1,34 @@
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
+
 //middalware
 class UserController {
     register(req, res) {
-        res.render('user/register');
+        res.render('user/register', {
+            success: req.session.success,
+            errors: req.session.errors,
+        });
+        req.session.errors = null;
     }
     login(req, res) {
         res.render('user/login');
     }
     signin(req, res, next) {
         const { username, password } = req.body;
+        // // var errors = [];
         if (!username || !password) {
             return res
                 .status(500)
                 .json({ error: 'Vui lòng nhập đầy đủ thông tin!' });
         }
+
         User.findOne({ username: username })
             .then((savedUser) => {
                 if (!savedUser) {
-                    return res
-                        .status(500)
-                        .json({
-                            error: 'Tên người dùng hoặc mật khẩu không hợp lệ!',
-                        });
+                    return res.status(500).json({
+                        error: 'Tên người dùng hoặc mật khẩu không hợp lệ!',
+                    });
                 }
                 bcrypt
                     .compare(password, savedUser.password)
@@ -53,36 +58,50 @@ class UserController {
     }
     signup(req, res, next) {
         const { username, password } = req.body;
-        if (!username || !password) {
-            return res
-                .status(500)
-                .json({ error: 'Vui lòng thêm tất cả các trường!' });
+        const errors = [];
+        // if (!username || !password) {
+        //   return res
+        //     .status(500)
+        //     .json({ error: "Vui lòng thêm tất cả các trường!" });
+        // }
+
+        if (!username) {
+            errors.push('Vui lòng nhập tên!');
         }
-        User.findOne({ username: username })
-            .then((savedUser) => {
-                if (savedUser) {
-                    return res
-                        .status(200)
-                        .json({ error: 'Người dùng này đã tồn tại!' });
-                }
-                bcrypt.hash(password, 12).then((hashedpassword) => {
-                    const user = new User({
-                        username,
-                        password: hashedpassword,
-                    });
-                    user.save()
-                        .then((user) => {
-                            //   res.json({ message: "Đăng ký thành công" });
-                            res.redirect('/user/login');
-                        })
-                        .catch((err) => {
-                            console.log(err);
-                        });
-                });
-            })
-            .catch((err) => {
-                console.log(err);
+        if (!password) {
+            errors.push('Vui lòng nhập mật khẩu!');
+        }
+        if (errors.length) {
+            res.render('user/register', {
+                errors: errors,
             });
+            return;
+        }
+
+        // User.findOne({ username: username })
+        //   .then((savedUser) => {
+        //     if (savedUser) {
+        //       return res.status(200).json({ error: "Người dùng này đã tồn tại!" });
+        //     }
+        //     bcrypt.hash(password, 12).then((hashedpassword) => {
+        //       const user = new User({
+        //         username,
+        //         password: hashedpassword,
+        //       });
+        //       user
+        //         .save()
+        //         .then((user) => {
+        //           //   res.json({ message: "Đăng ký thành công" });
+        //           res.redirect("/user/login");
+        //         })
+        //         .catch((err) => {
+        //           console.log(err);
+        //         });
+        //     });
+        //   })
+        //   .catch((err) => {
+        //     console.log(err);
+        //   });
     }
 }
 
