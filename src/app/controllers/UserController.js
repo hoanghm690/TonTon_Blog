@@ -1,5 +1,5 @@
+const md5 = require('md5');
 const User = require('../models/User');
-
 //middalware
 class UserController {
     register(req, res) {
@@ -10,6 +10,7 @@ class UserController {
     }
     signin(req, res, next) {
         const { username, password } = req.body;
+        const hashedPassword = md5(password);
         User.findOne({ username: username }).then((savedUser) => {
             if (!savedUser) {
                 res.render('user/login', {
@@ -18,14 +19,14 @@ class UserController {
                 });
                 return;
             }
-            if (savedUser.password !== password) {
+            if (savedUser.password !== hashedPassword) {
                 res.render('user/login', {
                     errors: ['Mật khẩu không đúng!'],
                     values: req.body,
                 });
                 return;
             }
-            res.cookie('userId', savedUser.id);
+            res.cookie('userId', savedUser.id, { signed: true });
             res.redirect('/');
         });
     }
@@ -47,18 +48,21 @@ class UserController {
         }
         // User.findOne({ username: username })
         //   .then((savedUser) => {
-        //     if (savedUser) {
-        //       return res.status(200).json({ error: "Người dùng này đã tồn tại!" });
+        //     if (!savedUser) {
+        //       res.render("user/register", {
+        //         errors: ["Người dùng này đã tồn tại!"],
+        //         values: req.body,
+        //       });
+        //       return;
         //     }
-        //     bcrypt.hash(password, 12).then((hashedpassword) => {
+        //     md5(password).then((hashedPassword) => {
         //       const user = new User({
         //         username,
-        //         password: hashedpassword,
+        //         password: hashedPassword,
         //       });
         //       user
         //         .save()
         //         .then((user) => {
-        //           //   res.json({ message: "Đăng ký thành công" });
         //           res.redirect("/user/login");
         //         })
         //         .catch((err) => {
