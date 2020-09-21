@@ -1,6 +1,6 @@
 const md5 = require('md5');
 const User = require('../models/User');
-//middalware
+
 class UserController {
     register(req, res) {
         res.render('user/register');
@@ -8,7 +8,7 @@ class UserController {
     login(req, res) {
         res.render('user/login');
     }
-    signin(req, res, next) {
+    signin(req, res) {
         const { username, password } = req.body;
         const hashedPassword = md5(password);
         User.findOne({ username: username }).then((savedUser) => {
@@ -30,8 +30,9 @@ class UserController {
             res.redirect('/');
         });
     }
-    signup(req, res, next) {
+    signup(req, res) {
         const { username, password } = req.body;
+        const hashedPassword = md5(password);
         const errors = [];
         if (!username) {
             errors.push('Vui lòng nhập tên!');
@@ -46,33 +47,25 @@ class UserController {
             });
             return;
         }
-        // User.findOne({ username: username })
-        //   .then((savedUser) => {
-        //     if (!savedUser) {
-        //       res.render("user/register", {
-        //         errors: ["Người dùng này đã tồn tại!"],
-        //         values: req.body,
-        //       });
-        //       return;
-        //     }
-        //     md5(password).then((hashedPassword) => {
-        //       const user = new User({
-        //         username,
-        //         password: hashedPassword,
-        //       });
-        //       user
-        //         .save()
-        //         .then((user) => {
-        //           res.redirect("/user/login");
-        //         })
-        //         .catch((err) => {
-        //           console.log(err);
-        //         });
-        //     });
-        //   })
-        //   .catch((err) => {
-        //     console.log(err);
-        //   });
+        User.findOne({ username: username })
+            .then((user) => {
+                if (!user) {
+                    User.create({
+                        username: username,
+                        password: hashedPassword,
+                    }).then((user) => {
+                        res.redirect('/user/login');
+                    });
+                } else {
+                    res.render('user/register', {
+                        errors: ['Người dùng này đã tồn tại'],
+                        values: req.body,
+                    });
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+            });
     }
 }
 
