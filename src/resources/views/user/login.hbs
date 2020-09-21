@@ -1,8 +1,11 @@
-<div class="container mt-4 mb-4">
+<div class="container" style="margin: 100px auto">
     <div class="row mt-5">
         <div class="col-md-6 m-auto">
             <div class="card card-body">
                 <h1 class="text-center mb-3"><i class="fas fa-sign-in-alt"></i> Đăng nhập</h1>
+                {{#each errors}}
+                <div class="alert alert-danger" style="padding: 5px 20px" role="alert">{{this}}</div>
+                {{/each}}
                 <form action="/user/login" method="POST">
                     <div class="form-group">
                         <label for="username">Tên người dùng</label>
@@ -17,7 +20,7 @@
                     <button type="submit" class="btn btn-primary btn-block">Đăng nhập</button>
                 </form>
 
-                <p class="lead mt-4">
+                <p class="lead mt-4" style="font-size: 1rem; font-weight:400; text-align:center">
                     Bạn chưa có tài khoản? <a href="/user/register">Đăng ký</a>
                 </p>
             </div>

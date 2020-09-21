@@ -11,6 +11,9 @@
     .carousel-caption.btn {
         font-size: 100%;
     }
+    .nav-item-none {
+        display: none;
+    }
 }
 @media (max-width: 768px) {
     .carousel-caption {
