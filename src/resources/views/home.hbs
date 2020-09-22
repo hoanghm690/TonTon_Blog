@@ -28,11 +28,18 @@
             <p>Thêm một chút bền bỉ, một chút nỗ lực, và điều tưởng chừng như là thất bại vô vọng có thể biến thành
                 thành công rực rỡ</p>
         </div>
-        <hr>
+        <div class="col-12 mt-3 mb-5">
+            <a href="/user/register">
+                <button type="button" class="btn btn-primary btn-register-course">
+                    <span class="btn-text">ĐĂNG KÝ HỌC</span>
+                </button>
+            </a>
+        </div>
+        {{!-- <hr> --}}
     </div>
 </div>
 
-<div class="container">
+{{!-- <div class="container">
     <div class="row text-center introduction">
         <div class="col-xs-12 col-sm-6 col-md-4">
             <i class="fab fa-react"></i>
@@ -50,40 +57,55 @@
             <p>Tùy chỉnh giao diện người dùng web của bạn với CSS3 và HTML5</p>
         </div>
     </div>
+</div> --}}
+
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-lg-5">
+            <h2 class="mb-5" style="font-weight: 900; font-size: 2.4rem">WHO ARE YOU</h2>
+            <p>Khi tạo ra sản phẩm cho ngôi nhà của bạn, chúng tôi đặt sự quan tâm và đam mê giống như
+                chúng tôi dành
+                cho gia đình của mình. Đối với chúng tôi, chất lượng thủ công mỹ nghệ, bí quyết sản xuất sản phẩm đẹp
+                và hữu ích.</p>
+        </div>
+        <div class="col-lg-7">
+            <img class="rounded float-right" src="img/section-1-desktop.jpg" alt="" style="width: 65%; height: 85%">
+        </div>
+    </div>
 </div>
 
+<div class="container mt-4 mb-5">
+    <div class="row">
+        <div class="col-lg-7">
+            <img class="rounded float-left" src="img/what-we-do.jpg" alt="" style="width: 65%; height: 80%">
+        </div>
+        <div class="col-lg-5">
+            <h2 class="mb-5" style="font-weight: 900; font-size: 2.4rem">WHAT WE DO</h2>
+            <h4 class="mb-4" style="font-weight: bold; font-size: 1.4rem">CHÚNG TÔI KẾT HỢP QUÁ KHỨ VỚI HIỆN TẠI</h4>
+            <p>Nó thậm chí không đủ để sở hữu một chuyên gia hàng trăm năm về
+                lãnh thổ của nó. Để đạt được kết quả mong muốn, chân thực và có giá trị, cần phải kết hợp tất cả những
+                điều này với một thiết kế độc đáo.</p>
+        </div>
+    </div>
+</div>
 
-{{!-- <div class="container">
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-lg-5">
+            <h2 class="mb-5" style="font-weight: 900; font-size: 2.4rem">GET IN TOUCH</h2>
+            <p>Nếu bạn có một dự án trong tâm trí, bất kỳ câu hỏi hoặc thắc mắc nào, vui lòng liên hệ với chúng tôi.
+                Chúng tôi trả lời nhanh chóng và chính xác.</p>
+        </div>
+        <div class="col-lg-7">
+            <img class="rounded float-right" src="img/get-in-touch.jpg" alt="" style="width: 65%; height: 85%">
+        </div>
+    </div>
+</div>
+
+<div class="container mb-5">
     <div class="row welcom text-center">
         <div class="col-12">
-            <h1 class="display-6">
-                Khoá học nổi bật
-            </h1>
-        </div>
-        <div class="col-12">
-            <p>Những khóa học có số lượng học viên theo học nhiều nhất và có phản hồi tích cực nhất</p>
+            <q class="tonton-maxim-live">Thành công là thứ bạn thu hút bởi con người bạn trở thành.</q>
         </div>
     </div>
-
-    <div class="mt-4">
-        <div class="row">
-            {{#each courses}}
-            <div class="col-sm-6 col-lg-4">
-                <div class="card card-course-item" style="width: 22rem;">
-                    <a href="/courses/{{this.slug}}">
-                        <img class="card-img-top" src="{{this.image}}" alt="{{this.name}}">
-                    </a>
-                    <div class="card-body">
-                        <a href="/courses/{{this.slug}}">
-                            <h5 class="card-title">{{this.name}}</h5>
-                        </a>
-                        <p class="card-text">{{this.description}}</p>
-                        <a href="#" class="btn btn-primary">Mua khóa học</a>
-                    </div>
-                </div>
-            </div>
-            {{/each}}
-        </div>
-
-    </div>
-</div> --}}
+</div>

@@ -63,6 +63,14 @@ body {
     border-radius: 50%;
     margin-right: 4px;
 }
+.user-frofile-icon {
+    margin-left: -6px;
+    margin-right: 4px;
+}
+.dropdown-menu {
+    top: 30px;
+    left: -24px;
+}
 
 .list-group h5 {
     font-size: 1.1rem;
@@ -127,29 +135,29 @@ body {
     margin-bottom: 1rem;
 }
 .welcom hr {
-    border-top: 2px solid #999;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
     width: 100%;
     margin-bottom: 2rem;
 }
-.fa-react {
-    font-size: 4rem;
-    margin: 1rem;
-    color: #81d8f7;
+.tonton-maxim-live {
+    color: #666666;
+    font-style: italic;
+    font-family: 'Merriweather', serif;
+    font-weight: 300;
+    font-size: 2rem;
+    quotes: '\201C''\201D';
 }
-.fa-angular {
-    font-size: 4rem;
-    margin: 1rem;
-    color: rgb(177, 43, 55);
+.btn.btn-primary.btn-register-course {
+    width: 150px;
 }
-.fa-css3 {
-    font-size: 4rem;
-    margin: 1rem;
-    color: #d76537;
+.btn.btn-primary.btn-register-course:hover {
+    transform: translate3d(0, -2px, 0);
+    -webkit-transform: translate3d(0, -2px, 0);
 }
-.introduction {
-    margin: 20px 0 60px 0;
+.btn-register-course .btn-text {
+    font-weight: 600;
+    font-size: 0.85714286em;
 }
-
 // Courses Show
 .card-body a {
     text-decoration: none;
