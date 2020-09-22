@@ -1,18 +1,22 @@
 const express = require('express');
 const router = express.Router();
-
+const requireLogin = require('../app/middlewares/userMiddleware');
 const courseController = require('../app/controllers/CourseController');
 
-router.get('/create', courseController.create);
-router.post('/store', courseController.store);
-router.get('/:id/edit', courseController.edit);
-router.post('/handle-form-actions', courseController.handleFormActions);
+router.get('/create', requireLogin, courseController.create);
+router.post('/store', requireLogin, courseController.store);
+router.get('/:id/edit', requireLogin, courseController.edit);
+router.post(
+    '/handle-form-actions',
+    requireLogin,
+    courseController.handleFormActions,
+);
 
-router.put('/:id', courseController.update);
-router.patch('/:id/restore', courseController.restore);
-router.delete('/:id', courseController.delete);
-router.delete('/:id/force', courseController.forceDelete);
+router.put('/:id', requireLogin, courseController.update);
+router.patch('/:id/restore', requireLogin, courseController.restore);
+router.delete('/:id', requireLogin, courseController.delete);
+router.delete('/:id/force', requireLogin, courseController.forceDelete);
 
-router.get('/:slug', courseController.show);
+router.get('/:slug', requireLogin, courseController.show);
 
 module.exports = router;
