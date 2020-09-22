@@ -10,6 +10,6 @@ module.exports = function requireLogin(req, res, next) {
             return;
         }
         res.locals.user = user;
+        next();
     });
-    next();
 };
