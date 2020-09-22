@@ -4,12 +4,12 @@ module.exports = function requireLogin(req, res, next) {
         res.redirect('/user/login');
         return;
     }
-    User.find({ _id: req.signedCookies.userId }).then((user) => {
+    User.findOne({ _id: req.signedCookies.userId }).then((user) => {
         if (!user) {
             res.redirect('/user/login');
             return;
         }
         res.locals.user = user;
-        next();
     });
+    next();
 };

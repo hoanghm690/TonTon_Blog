@@ -4,7 +4,11 @@ const path = require('path');
 const express = require('express');
 // const morgan = require("morgan");
 const methodOverride = require('method-override');
+const Handlebars = require('handlebars');
 const handexphbs = require('express-handlebars');
+const {
+    allowInsecurePrototypeAccess,
+} = require('@handlebars/allow-prototype-access');
 const port = process.env.PORT || 3000;
 
 const SortMiddleware = require('./app/middlewares/SortMiddleware');
@@ -25,6 +29,7 @@ app.engine(
     handexphbs({
         extname: '.hbs',
         helpers: require('./helpers/hbs'),
+        handlebars: allowInsecurePrototypeAccess(Handlebars),
     }),
 );
 app.set('views', path.join(__dirname, 'resources', 'views'));
