@@ -32,27 +32,18 @@ class UserController {
     }
     signup(req, res) {
         const { username, password } = req.body;
+        const avatar = (req.body.avatar = req.file.path
+            .split('\\')
+            .slice(2)
+            .join('/'));
         const hashedPassword = md5(password);
-        const errors = [];
-        if (!username) {
-            errors.push('Vui lòng nhập tên!');
-        }
-        if (!password) {
-            errors.push('Vui lòng nhập mật khẩu!');
-        }
-        if (errors.length) {
-            res.render('user/register', {
-                errors: errors,
-                values: req.body,
-            });
-            return;
-        }
         User.findOne({ username: username })
             .then((user) => {
                 if (!user) {
                     User.create({
                         username: username,
                         password: hashedPassword,
+                        avatar: avatar,
                     }).then((user) => {
                         res.redirect('/user/login');
                     });
