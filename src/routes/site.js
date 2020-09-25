@@ -5,6 +5,6 @@ const siteController = require('../app/controllers/SiteController');
 
 router.get('/search', siteController.search);
 router.get('/courses', requireLogin, siteController.courses);
-router.get('/', siteController.index);
+router.get('/', requireLogin, siteController.index);
 
 module.exports = router;

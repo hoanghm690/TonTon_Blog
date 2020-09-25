@@ -27,6 +27,9 @@ body {
     font-size: 1rem;
     font-weight: 600;
 }
+.nav-link.dropdown-toggle:hover {
+    cursor: pointer;
+}
 .navbar-branch img {
     width: 150px;
     height: 40px;
@@ -277,7 +280,7 @@ body {
 }
 // Footer
 .footer {
-    background-color: #000;
+    background-color: #000000;
     color: white;
 }
 .footer.container {
