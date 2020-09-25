@@ -1,5 +1,6 @@
 const md5 = require('md5');
 const User = require('../models/User');
+const logout = require('express-passport-logout');
 
 class UserController {
     register(req, res) {
@@ -57,6 +58,11 @@ class UserController {
             .catch((err) => {
                 console.log(err);
             });
+    }
+    logout(req, res) {
+        logout();
+        res.clearCookie('userId');
+        res.redirect('/');
     }
 }
 
