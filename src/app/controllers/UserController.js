@@ -64,6 +64,9 @@ class UserController {
         res.clearCookie('userId');
         res.redirect('/');
     }
+    settings(req, res) {
+        res.render('user/settings');
+    }
 }
 
 module.exports = new UserController();

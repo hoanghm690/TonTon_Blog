@@ -5,6 +5,7 @@ const multer = require('multer');
 const userValidate = require('../app/middlewares/userValidate');
 const userController = require('../app/controllers/UserController');
 
+const requireLogin = require('../app/middlewares/userMiddleware');
 // const upload = multer({ dest: 'src/public/uploads/' });
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -25,5 +26,7 @@ router.post(
 router.get('/login', userController.login);
 router.post('/login', userController.signin);
 router.get('/logout', userController.logout);
+
+router.get('/settings', requireLogin, userController.settings);
 
 module.exports = router;
