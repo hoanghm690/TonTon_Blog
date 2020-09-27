@@ -34,5 +34,10 @@ router.get(
     requireLogin,
     userController.accountsEditUsername,
 );
+router.get(
+    '/settings/accounts/edit/password',
+    requireLogin,
+    userController.accountsEditPassword,
+);
 
 module.exports = router;

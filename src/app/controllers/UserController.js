@@ -81,6 +81,13 @@ class UserController {
             })
             .catch(next);
     }
+    accountsEditPassword(req, res, next) {
+        User.findOne({})
+            .then((user) => {
+                res.render('user/edit-password');
+            })
+            .catch(next);
+    }
 }
 
 module.exports = new UserController();
