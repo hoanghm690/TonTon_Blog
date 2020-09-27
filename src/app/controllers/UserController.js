@@ -67,6 +67,13 @@ class UserController {
     settings(req, res) {
         res.render('user/settings');
     }
+    accountsShow(req, res, next) {
+        User.find({})
+            .then((user) => {
+                res.render('user/settings-accounts');
+            })
+            .catch(next);
+    }
 }
 
 module.exports = new UserController();

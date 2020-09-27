@@ -28,5 +28,6 @@ router.post('/login', userController.signin);
 router.get('/logout', userController.logout);
 
 router.get('/settings', requireLogin, userController.settings);
+router.get('/settings/accounts', requireLogin, userController.accountsShow);
 
 module.exports = router;

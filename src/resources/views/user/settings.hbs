@@ -1,21 +1,19 @@
-<div class="container mt-5 mb-5">
+{{#if user}}
+<div class="container mt-5" style="min-height: 100vh">
     <div class="row">
-        {{#if user}}
         <div class="col-lg-4">
-            <div class="d-flex">
+            <a href="/" class="d-flex" style="cursor: pointer; text-decoration: none; color: #333">
                 <img class="rounded mr-2 mb-5" src="http://localhost:3000/uploads/altumcode-dMUt0X3f59Q-unsplash.jpg"
                     style="width: 69px; height: 69px">
                 <h5>{{user.username}}</h5>
-            </div>
-            <a href=""
-                style="cursor: pointer; text-decoration: none; color: #333; font-weight: 500; font-size: 1.2rem">Tài
-                khoản</a>
+            </a>
         </div>
-        {{/if}}
+
         <div class="col-lg-6">
             <h2 class="mb-4" style="font-weight: 500; font-size: 2.4rem">Cài đặt</h2>
             <div class="dropdown-divider"></div>
-            <a href="" class="d-flex pt-2 pb-2" style="cursor: pointer; text-decoration: none; color: #333">
+            <a href="/user/settings/accounts" class="d-flex pt-2 pb-2"
+                style="cursor: pointer; text-decoration: none; color: #333">
                 <i class="fas fa-id-card d-flex align-items-center mr-4" style="font-size: 2.4rem"></i>
                 <div style="flex: 1 1">
                     <h5>Tài khoản</h5>
@@ -25,6 +23,6 @@
             </a>
             <div class="dropdown-divider"></div>
         </div>
-
     </div>
 </div>
+{{/if}}
