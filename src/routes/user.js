@@ -39,5 +39,6 @@ router.get(
     requireLogin,
     userController.accountsEditPassword,
 );
+router.put('/:id', requireLogin, userController.update);
 
 module.exports = router;

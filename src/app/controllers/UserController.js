@@ -88,6 +88,13 @@ class UserController {
             })
             .catch(next);
     }
+    update(req, res, next) {
+        User.updateOne({ _id: req.params.id }, req.body)
+            .then(() => {
+                res.redirect('/user/settings/accounts');
+            })
+            .catch(next);
+    }
 }
 
 module.exports = new UserController();
