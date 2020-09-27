@@ -6,8 +6,8 @@ const User = new Schema(
         username: { type: String, required: true, unique: true },
         password: { type: String, required: true },
         avatar: { type: String },
-        gender: { type: String, required: true },
-        birthday: { type: String, required: true },
+        gender: { type: String },
+        birthday: { type: String },
     },
     { timestamps: true },
 );
