@@ -74,6 +74,13 @@ class UserController {
             })
             .catch(next);
     }
+    accountsEditUsername(req, res, next) {
+        User.findOne({})
+            .then((user) => {
+                res.render('user/edit-username');
+            })
+            .catch(next);
+    }
 }
 
 module.exports = new UserController();

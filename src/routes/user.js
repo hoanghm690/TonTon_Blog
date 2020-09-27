@@ -29,5 +29,10 @@ router.get('/logout', userController.logout);
 
 router.get('/settings', requireLogin, userController.settings);
 router.get('/settings/accounts', requireLogin, userController.accountsShow);
+router.get(
+    '/settings/accounts/edit/username',
+    requireLogin,
+    userController.accountsEditUsername,
+);
 
 module.exports = router;
