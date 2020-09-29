@@ -35,7 +35,7 @@ class UserController {
         const { username, password } = req.body;
         const avatar = (req.body.avatar = req.file.path
             .split('\\')
-            .slice(2)
+            .slice(-2)
             .join('/'));
         const hashedPassword = md5(password);
         User.findOne({ username: username })
