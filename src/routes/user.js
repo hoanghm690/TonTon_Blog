@@ -25,7 +25,6 @@ router.post(
 );
 router.get('/login', userController.login);
 router.post('/login', userController.signin);
-router.get('/logout', userController.logout);
 
 router.get('/settings', requireLogin, userController.settings);
 router.get('/settings/accounts', requireLogin, userController.accountsShow);
@@ -40,5 +39,6 @@ router.get(
     userController.accountsEditPassword,
 );
 router.put('/:id', requireLogin, userController.update);
+router.get('/logout', userController.logout);
 
 module.exports = router;

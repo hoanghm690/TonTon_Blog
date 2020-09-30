@@ -5,9 +5,9 @@ const User = new Schema(
     {
         username: { type: String, required: true, unique: true },
         password: { type: String, required: true },
-        avatar: { type: String },
-        gender: { type: String },
-        birthday: { type: String },
+        avatar: { type: String, required: false },
+        gender: { type: String, required: false },
+        birthday: { type: String, required: false },
     },
     { timestamps: true },
 );
