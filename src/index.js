@@ -36,7 +36,7 @@ app.set('views', path.join(__dirname, 'resources', 'views'));
 app.set('view engine', 'hbs');
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cookieParser(process.env.SESSION_SECRET));
 

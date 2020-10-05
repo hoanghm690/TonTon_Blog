@@ -94,6 +94,7 @@ class UserController {
             })
             .catch(next);
     }
+    changePassword(req, res, next) {}
 }
 
 module.exports = new UserController();

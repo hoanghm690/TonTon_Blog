@@ -40,5 +40,6 @@ router.get(
 );
 router.put('/:id', requireLogin, userController.update);
 router.get('/logout', userController.logout);
+router.post('/change_password', userController.changePassword);
 
 module.exports = router;
