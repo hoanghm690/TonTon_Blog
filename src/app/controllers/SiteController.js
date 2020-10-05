@@ -27,5 +27,8 @@ class SiteController {
             })
             .catch(next);
     }
+    error(req, res) {
+        res.render('error');
+    }
 }
 module.exports = new SiteController();
