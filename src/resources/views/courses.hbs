@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="mt-4">
+    <div class="mt-4 mb-5">
         <div class="row">
             <div class="col-lg-3">
                 <ul class="list-group">
@@ -25,14 +25,23 @@
                 {{#each courses}}
                 <div class="card card-course-item">
                     <a href="/courses/{{this.slug}}">
-                        <img class="card-img-top" src="{{this.image}}" alt="{{this.name}}">
+                        <div class="card-img-top" style="background-image: url({{this.image}})"></div>
+                        {{!-- <div class="card-img-top" src="{{this.image}}" alt="{{this.name}}"></div> --}}
                     </a>
                     <div class="card-body">
                         <a href="/courses/{{this.slug}}">
                             <h5 class="card-title">{{this.name}}</h5>
                         </a>
                         <p class="card-text">{{this.description}}</p>
-                        <a href="/courses/{{this.slug}}" class="btn btn-primary btn-course-free">Miễn phí</a>
+                        <ul class="course-list-grid">
+                            <li class="course-item-grid">
+                                <img src="img/giphy.gif" alt="TonTon" />
+                                <span>TonTon</span>
+                            </li>
+                            <li class="course-item-grid">
+                                <a href="/courses/{{this.slug}}" class="btn btn-primary btn-course-free">Miễn phí</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
                 {{/each}}

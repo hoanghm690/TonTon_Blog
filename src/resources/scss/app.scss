@@ -42,10 +42,9 @@ body {
 
 .card-course-item {
     position: relative;
-    width: 17rem;
-    height: 34rem;
-    margin-right: 21px;
-    margin-bottom: 40px;
+    width: 30.33333%;
+    // height: 25rem;
+    margin: 0 11px 30px 11px;
     display: inline-flex;
 }
 .card-course-item a {
@@ -55,10 +54,33 @@ body {
 .card-img-top {
     width: 100%;
     transition: all 0.3s ease-in-out;
+    padding-top: 56%;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 100% auto;
 }
 .card-img-top:hover {
     -webkit-transform: scale(1.2);
     transform: scale(1.2);
+}
+.course-list-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+.course-item-grid {
+    list-style: none;
+}
+.course-item-grid img {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+.course-item-grid span {
+    font-size: 14px;
+    color: #555;
 }
 .user-avatar {
     width: 28px;
@@ -115,9 +137,9 @@ body {
     margin: 20px;
 }
 .btn.btn-primary.btn-course-free {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
+    border-radius: 25px;
+    font-size: 15px;
+    padding: 4px 11px;
 }
 .btn-primary {
     background-color: #f05123;
@@ -356,11 +378,9 @@ body {
 }
 
 .error-img {
-    -moz-user-select: none; /* These user-select properties are inheritable, used to prevent text selection */
+    -moz-user-select: none;
     -webkit-user-select: none;
-    -ms-user-select: none; /* From IE10 only */
-    user-select: none; /* Not valid CSS yet, as of July 2012 */
-
-    -webkit-user-drag: none; /* Prevents dragging of images/divs etc */
-    user-drag: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
 }
