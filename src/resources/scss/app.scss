@@ -136,10 +136,16 @@ body {
 .carousel-caption button {
     margin: 20px;
 }
-.btn.btn-primary.btn-course-free {
+.btn.btn-course-free {
+    background-color: #f05123;
+    color: #fff;
     border-radius: 25px;
     font-size: 15px;
     padding: 4px 11px;
+    transition: all 0.3s ease-in-out;
+}
+.btn.btn-course-free:hover {
+    transform: translateY(-5px);
 }
 .btn-primary {
     background-color: #f05123;
@@ -172,22 +178,28 @@ body {
     font-size: 2rem;
     quotes: '\201C''\201D';
 }
-.btn.btn-primary.btn-register-course {
+.btn.btn-register-course {
     width: 150px;
+    background-color: #f05123;
+    border-radius: 25px;
+    transition: all 0.2s ease-in-out;
 }
-.btn.btn-primary.btn-register-course:hover {
-    transform: translate3d(0, -2px, 0);
-    -webkit-transform: translate3d(0, -2px, 0);
+.btn.btn-register-course:hover {
+    transform: translate3d(0, -5px, 0);
+    -webkit-transform: translate3d(0, -5px, 0);
 }
 .btn-register-course .btn-text {
     font-weight: 600;
     font-size: 0.85714286em;
+    color: #fff;
 }
+
 // Courses Show
 .card-body a {
     text-decoration: none;
 }
 .card-title {
+    font-size: 18px;
     color: #444;
 }
 .card-title:hover {
