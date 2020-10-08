@@ -8,6 +8,7 @@ const User = new Schema(
         avatar: { type: String, required: false },
         gender: { type: String, required: false },
         birthday: { type: String, required: false },
+        role: { type: Number, default: 0 },
     },
     { timestamps: true },
 );

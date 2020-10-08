@@ -1,3 +1,9 @@
+@media (max-width: 1148px) {
+    .card-course-item {
+        width: 45%;
+    }
+}
+
 @media (max-width: 1024px) {
     .carousel-caption {
         top: 20%;
@@ -14,6 +20,18 @@
     .nav-item-none {
         display: none;
     }
+    .card-course-item {
+        width: 45%;
+    }
+    .col-md-3 img {
+        width: 180px;
+        height: 50px;
+    }
+}
+@media (max-width: 772px) {
+    .nav-item .nav-link {
+        font-size: 0.9rem;
+    }
 }
 @media (max-width: 768px) {
     .carousel-caption {
@@ -27,6 +45,21 @@
     }
     .carousel-caption.btn {
         font-size: 90%;
+    }
+    .navbar-toggler:focus {
+        outline: none;
+    }
+    .nav-link.dropdown-toggle {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    .navbar-nav {
+        flex-direction: unset;
+    }
+    .col-md-3 img {
+        width: 150px;
+        height: 45px;
     }
 }
 @media (max-width: 576px) {

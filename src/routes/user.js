@@ -5,7 +5,6 @@ const router = express.Router();
 const multer = require('multer');
 const userValidate = require('../app/middlewares/userValidate');
 const userController = require('../app/controllers/UserController');
-
 const requireLogin = require('../app/middlewares/userMiddleware');
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
