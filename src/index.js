@@ -18,6 +18,8 @@ const cookieParser = require('cookie-parser');
 const route = require('./routes');
 const db = require('./config/db');
 
+const port = process.env.PORT || '3000';
+
 //Connect to DB
 db.connect();
 const app = express();
@@ -56,8 +58,6 @@ app.use(SortMiddleware);
 
 // Routes init
 route(app);
-
-const port = process.env.PORT || 3000;
 
 app.listen(port, () =>
     console.log(`App listening at http://localhost:${port}`),
