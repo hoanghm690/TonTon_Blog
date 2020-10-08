@@ -9,7 +9,6 @@ const handexphbs = require('express-handlebars');
 const {
     allowInsecurePrototypeAccess,
 } = require('@handlebars/allow-prototype-access');
-const port = process.env.PORT || 3000;
 
 const SortMiddleware = require('./app/middlewares/SortMiddleware');
 
@@ -57,6 +56,8 @@ app.use(SortMiddleware);
 
 // Routes init
 route(app);
+
+const port = process.env.PORT || 3000;
 
 app.listen(port, () =>
     console.log(`App listening at http://localhost:${port}`),
