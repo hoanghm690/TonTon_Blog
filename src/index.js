@@ -18,7 +18,7 @@ const cookieParser = require('cookie-parser');
 const route = require('./routes');
 const db = require('./config/db');
 
-const port = process.env.PORT || '3000';
+const port = process.env.PORT || 8080;
 
 //Connect to DB
 db.connect();
