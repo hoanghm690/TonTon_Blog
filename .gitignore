@@ -1,7 +1,5 @@
 node_modules/
 
-src/public/css/
-
-src/public/vendor/open-iconic-master/png/
+public/css/
 
 .env
