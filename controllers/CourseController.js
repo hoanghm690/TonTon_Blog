@@ -1,5 +1,5 @@
 const Course = require('../models/Course');
-const { mongooseToObject } = require('../../util/mongoose');
+const { mongooseToObject } = require('../util/mongoose');
 class CourseController {
     // [GET] /courses/:slug
     show(req, res, next) {
@@ -81,7 +81,7 @@ class CourseController {
                     .catch(next);
                 break;
             default:
-                res.json({ message: 'Action is invalid!' });
+                res.redirect('/error');
         }
     }
 }

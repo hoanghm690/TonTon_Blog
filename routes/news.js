@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const requireLogin = require('../app/middlewares/userMiddleware');
-const newsController = require('../app/controllers/NewsController');
-const checkUser = require('../app/middlewares/checkUser');
+const requireLogin = require('../middlewares/userMiddleware');
+const newsController = require('../controllers/NewsController');
+const checkUser = require('../middlewares/checkUser');
 
 router.get('/', requireLogin, checkUser, newsController.index);
 

@@ -10,7 +10,7 @@ const {
   allowInsecurePrototypeAccess,
 } = require("@handlebars/allow-prototype-access");
 
-const SortMiddleware = require("./app/middlewares/sortMiddleware");
+const SortMiddleware = require("./middlewares/sortMiddleware");
 
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");

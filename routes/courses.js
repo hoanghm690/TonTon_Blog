@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const requireLogin = require('../app/middlewares/userMiddleware');
-const checkAdmin = require('../app/middlewares/checkAdmin');
-const checkUser = require('../app/middlewares/checkUser');
-const courseController = require('../app/controllers/CourseController');
+const requireLogin = require('../middlewares/userMiddleware');
+const checkAdmin = require('../middlewares/checkAdmin');
+const checkUser = require('../middlewares/checkUser');
+const courseController = require('../controllers/CourseController');
 
 router.get('/create', requireLogin, checkAdmin, courseController.create);
 router.post('/store', requireLogin, checkAdmin, courseController.store);

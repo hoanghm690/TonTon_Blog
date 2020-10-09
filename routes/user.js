@@ -3,9 +3,9 @@ const path = require('path');
 const router = express.Router();
 
 const multer = require('multer');
-const userValidate = require('../app/middlewares/userValidate');
-const userController = require('../app/controllers/UserController');
-const requireLogin = require('../app/middlewares/userMiddleware');
+const userValidate = require('../middlewares/userValidate');
+const userController = require('../controllers/UserController');
+const requireLogin = require('../middlewares/userMiddleware');
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, path.resolve(__dirname, '../public/uploads/'));
