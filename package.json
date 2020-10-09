@@ -2,16 +2,16 @@
   "name": "blog",
   "version": "1.0.0",
   "description": "",
-  "main": "src/app.js",
+  "main": "app.js",
   "engines": {
     "node": "12.18.4",
     "npm": "6.14.8"
   },
   "scripts": {
     "beautiful": "lint-staged",
-    "dev": "nodemon --inspect src/app.js",
-    "start": "node src/app.js",
-    "watch": "node-sass --watch src/resources/scss/ --output src/public/css/",
+    "dev": "nodemon --inspect app.js",
+    "start": "node app.js",
+    "watch": "node-sass --watch resources/scss/ --output public/css/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
