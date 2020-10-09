@@ -42,7 +42,7 @@ class UserController {
     signup(req, res) {
         const { username, password } = req.body;
         const hashedPassword = md5(password);
-        // req.body.avatar = req.file.path
+        req.body.avatar = req.file.path;
         //     .split('\\')
         //     .slice(-2)
         //     .join('/');
