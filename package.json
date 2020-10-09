@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "src/index.js",
+  "engines": {
+    "node": "12.18.4"
+  },
   "scripts": {
     "beautiful": "lint-staged",
     "dev": "nodemon --inspect src/index.js",
