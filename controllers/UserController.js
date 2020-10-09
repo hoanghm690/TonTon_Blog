@@ -42,10 +42,10 @@ class UserController {
     signup(req, res) {
         const { username, password } = req.body;
         const hashedPassword = md5(password);
-        req.body.avatar = req.file.path;
-        //     .split('\\')
-        //     .slice(-2)
-        //     .join('/');
+        req.body.avatar = req.file.path
+            .split('\\')
+            .slice(-2)
+            .join('/');
         cloudinary.uploader.upload(req.file.path, (error, result) => {
             if(error){
                 return res.json({msg: "Lỗi, thử lại"});
