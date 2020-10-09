@@ -1,6 +1,15 @@
 const md5 = require('md5');
 const User = require('../models/User');
 const logout = require('express-passport-logout');
+
+const cloudinary = require('cloudinary').v2;
+const fs= require("fs");
+cloudinary.config({
+    cloud_name: process.env.CLOUD_NAME,
+    api_key: process.env.API_KEY,
+    api_secret: process.env.API_SECRET  
+  });
+
 class UserController {
     register(req, res) {
         res.render('user/register');
@@ -32,31 +41,37 @@ class UserController {
     }
     signup(req, res) {
         const { username, password } = req.body;
-        const avatar = (req.body.avatar = req.file.path
-            .split('\\')
-            .slice(-2)
-            .join('/'));
         const hashedPassword = md5(password);
-        User.findOne({ username: username })
-            .then((user) => {
-                if (!user) {
-                    User.create({
-                        username: username,
-                        password: hashedPassword,
-                        avatar: avatar,
-                    }).then((user) => {
-                        res.redirect('/user/login');
-                    });
-                } else {
-                    res.render('user/register', {
-                        errors: ['Người dùng này đã tồn tại'],
-                        values: req.body,
-                    });
-                }
-            })
-            .catch((err) => {
-                console.log(err);
-            });
+        // req.body.avatar = req.file.path
+        //     .split('\\')
+        //     .slice(-2)
+        //     .join('/');
+        cloudinary.uploader.upload(req.file.path, (error, result) => {
+            if(error){
+                return res.json({msg: "Lỗi, thử lại"});
+            }
+            User.findOne({ username: username })
+                .then((user) => {
+                    if (!user) {
+                        User.create({
+                            username: username,
+                            password: hashedPassword,
+                            avatar: result.url,
+                        }).then((user) => {
+                            res.redirect('/user/login');
+                        });
+                    } else {
+                        res.render('user/register', {
+                            errors: ['Người dùng này đã tồn tại'],
+                            values: req.body,
+                        });
+                    }
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+        });
+          
     }
     logout(req, res) {
         logout();
