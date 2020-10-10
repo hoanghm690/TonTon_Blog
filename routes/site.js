@@ -7,6 +7,7 @@ const siteController = require('../controllers/SiteController');
 router.get('/error', checkUser, siteController.error);
 router.get('/search', checkUser, siteController.search);
 router.get('/courses', requireLogin, checkUser, siteController.courses);
-router.get('/', requireLogin, checkUser, siteController.index);
+router.get('/news', requireLogin, checkUser, siteController.news);
+router.get('/', siteController.index);
 
 module.exports = router;

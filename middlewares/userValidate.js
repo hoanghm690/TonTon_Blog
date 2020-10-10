@@ -1,11 +1,13 @@
 module.exports = function userValidate(req, res, next) {
-    const { username, password } = req.body;
+    const { username, password ,avatar} = req.body;
     const errors = [];
     if (!username) {
-        errors.push('Vui lòng nhập tên!');
+        errors.push('Vui lòng nhập tên của bạn');     
     }
     if (!password) {
-        errors.push('Vui lòng nhập mật khẩu!');
+        errors.push('Vui lòng nhập mật khẩu của bạn');
+    }if (!avatar) {
+        errors.push('Vui lòng thêm avatar của bạn');
     }
     if (errors.length) {
         res.render('user/register', {

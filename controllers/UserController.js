@@ -70,8 +70,7 @@ class UserController {
                 .catch((err) => {
                     console.log(err);
                 });
-        });
-          
+        });        
     }
     logout(req, res) {
         logout();
