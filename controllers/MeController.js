@@ -1,4 +1,5 @@
 const Course = require('../models/Course');
+const User = require('../models/User');
 const { mutipleMongooseToObject } = require('../util/mongoose');
 
 class MeController {
@@ -36,6 +37,14 @@ class MeController {
                 }),
             )
             .catch(next);
+    }
+    storedUsers(req, res, next){   
+        User.find({}).sortable(req)     
+            .then(users=>{
+                res.render("me/stored-users",{
+                    users: users,
+                });
+            })
     }
 }
 module.exports = new MeController();

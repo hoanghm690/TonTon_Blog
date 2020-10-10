@@ -17,5 +17,6 @@ router.get(
     meController.trashCourses,
 );
 router.get('/stored/news', requireLogin, checkAdmin, meController.storedNews);
+router.get('/stored/users', requireLogin, checkAdmin, meController.storedUsers);
 
 module.exports = router;
