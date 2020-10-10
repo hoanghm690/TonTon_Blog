@@ -95,6 +95,9 @@ body {
   margin-left: -6px;
   margin-right: 4px;
 }
+.close.close-delete-account:focus {
+  outline: none;
+}
 .dropdown-menu {
   top: 30px;
   left: -24px;
