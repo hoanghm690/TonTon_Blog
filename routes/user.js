@@ -38,6 +38,7 @@ router.get(
     userController.accountsEditPassword,
 );
 router.put('/:id', requireLogin, userController.update);
+router.delete('/:id', requireLogin, userController.delete);
 router.get('/logout', userController.logout);
 router.post('/change_password', userController.changePassword);
 

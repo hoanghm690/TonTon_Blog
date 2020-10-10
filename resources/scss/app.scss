@@ -9,9 +9,12 @@ body {
 .navbar {
   width: 100%;
   left: 0;
+  top: 0;
+  right: 0;
   background-color: #000 !important;
   z-index: 24;
 }
+
 .NavBar_themeMainMenu {
   margin: 0 0 0 4rem;
 }

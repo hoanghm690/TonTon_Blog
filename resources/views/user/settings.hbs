@@ -2,11 +2,35 @@
 <div class="container mt-5" style="min-height: 100vh">
     <div class="row">
         <div class="col-lg-4">
-            <a href="/user/settings" class="d-flex" style="cursor: pointer; text-decoration: none; color: #333">
-                <img class="rounded mr-3 mb-5" src="{{user.avatar}}" style="width: 69px; height: 69px">
-                <h5>{{user.username}}</h5>
-            </a>
+            <div href="" class="d-flex" style="cursor: pointer; text-decoration: none">
+                <img class="rounded mr-3" src="{{user.avatar}}" data-toggle="modal" data-target="#update-user-avatar"
+                    style="width: 69px; height: 69px">
+                <div>
+                    <h5 style="color: #333">{{user.username}}</h5>
+                    {{!-- <span data-toggle="modal" data-target="#update-user-avatar" style="color: #007bff">Thay đổi
+                        avatar</span> --}}
+                </div>
+            </div>
         </div>
+        {{!-- <div id="update-user-avatar" class="modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Cập nhật avatar</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="file" id="avatar" name="avatar" />
+                    </div>
+                    <div class="modal-footer">
+                        <button id="btn-delete-course" type="button" class="btn btn-danger">Cập nhật</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                    </div>
+                </div>
+            </div>
+        </div> --}}
 
         <div class="col-lg-6">
             <h2 class="mb-4" style="font-weight: 500; font-size: 2.4rem">Cài đặt</h2>

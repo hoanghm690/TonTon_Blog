@@ -2,10 +2,15 @@
 <div class="container mt-5" style="min-height: 100vh">
     <div class="row">
         <div class="col-lg-4">
-            <a href="/user/settings" class="d-flex" style="cursor: pointer; text-decoration: none; color: #333">
-                <img class="rounded mr-3 mb-5" src="{{user.avatar}}" style="width: 69px; height: 69px">
-                <h5>{{user.username}}</h5>
-            </a>
+            <div href="" class="d-flex" style="cursor: pointer; text-decoration: none">
+                <img class="rounded mr-3" src="{{user.avatar}}" data-toggle="modal" data-target="#update-user-avatar"
+                    style="width: 69px; height: 69px">
+                <div>
+                    <h5 style="color: #333">{{user.username}}</h5>
+                    {{!-- <span data-toggle="modal" data-target="#update-user-avatar" style="color: #007bff">Thay đổi
+                        avatar</span> --}}
+                </div>
+            </div>
         </div>
 
         <div class="col-lg-6">
@@ -41,8 +46,46 @@
                     <i class=" fas fa-chevron-right d-flex align-items-center"></i>
                 </a>
                 <div class="dropdown-divider"></div>
+                <a href="" class="btn btn-link float-right text-danger" data-toggle="modal" data-id="{{user._id}}"
+                    data-target="#delete-user-account" style="text-decoration: none;">Xóa tài khoản</a>
+
+            </div>
+        </div>
+    </div>
+    <div id="delete-user-account" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Xóa tài khoản???</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Bạn có chắc chắn muốn xóa tài khoản này không???</p>
+                </div>
+                <div class="modal-footer">
+                    <button id="btn-delete-account" type="button" class="btn btn-danger">Xóa bỏ</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                </div>
             </div>
         </div>
     </div>
 </div>
+<form method="POST" name="delete-account-form"></form>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var accountId;
+        var deleteForm = document.forms["delete-account-form"];
+        var btnDeleteAccount = document.getElementById("btn-delete-account");
+        $('#delete-user-account').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);
+            accountId = button.data('id');
+        })
+        btnDeleteAccount.onclick = function () {
+            deleteForm.action = '/user/' + accountId + '?_method=DELETE';
+            deleteForm.submit();
+        }
+    });
+</script>
 {{/if}}

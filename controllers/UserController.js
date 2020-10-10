@@ -23,14 +23,14 @@ class UserController {
         User.findOne({ username: username }).then((savedUser) => {
             if (!savedUser) {
                 res.render('user/login', {
-                    errors: ['Người dùng không tồn tại!'],
+                    errors: ['Người dùng này không tồn tại!'],
                     values: req.body,
                 });
                 return;
             }
             if (savedUser.password !== hashedPassword) {
                 res.render('user/login', {
-                    errors: ['Mật khẩu không đúng!'],
+                    errors: ['Mật khẩu bạn nhập không đúng!'],
                     values: req.body,
                 });
                 return;
@@ -39,7 +39,7 @@ class UserController {
             res.redirect('/');
         });
     }
-    signup(req, res) {
+    signup(req, res, next) {
         const { username, password } = req.body;
         const hashedPassword = md5(password);
         req.body.avatar = req.file.path;
@@ -48,7 +48,7 @@ class UserController {
             // .join('/');
         cloudinary.uploader.upload(req.file.path, (error, result) => {
             if(error){
-                return res.json({msg: "Lỗi, thử lại"});
+                return res.redirect("/error");
             }
             User.findOne({ username: username })
                 .then((user) => {
@@ -57,9 +57,9 @@ class UserController {
                             username: username,
                             password: hashedPassword,
                             avatar: result.url,
-                        }).then((user) => {
+                        }).then(() => {
                             res.redirect('/user/login');
-                        });
+                        })
                     } else {
                         res.render('user/register', {
                             errors: ['Người dùng này đã tồn tại'],
@@ -67,9 +67,7 @@ class UserController {
                         });
                     }
                 })
-                .catch((err) => {
-                    console.log(err);
-                });
+                .catch(next);
         });        
     }
     logout(req, res) {
@@ -109,6 +107,13 @@ class UserController {
             .catch(next);
     }
     changePassword(req, res, next) {}
+    delete(req, res, next){
+        User.deleteOne({ _id: req.params.id })
+            .then(() => {
+                res.redirect("/");
+            })
+            .catch(next);
+    }
 }
 
 module.exports = new UserController();
