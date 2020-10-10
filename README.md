@@ -4,7 +4,8 @@ With main functions: Post, edit, delete, restore courses....
 * Back-end: NodeJS, ExpressJS
 * Database: MongoDB
 ## How to run the website locally
-* npm start 
+* npm run dev
 * npm run watch
 
-### TonTon-Blog: https://tonton-blog.herokuapp.com/ 
+### Demo
+* Here is the demo link for my exercise using heroku: https://tonton-blog.herokuapp.com/ 
