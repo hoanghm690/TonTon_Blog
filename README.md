@@ -4,7 +4,7 @@ With main functions: Post, edit, delete, restore courses....
 * Back-end: NodeJS, ExpressJS
 * Database: MongoDB
 ## How to run the website locally
-* npm start 
+* npm run dev
 * npm run watch
 
 ### Demo
