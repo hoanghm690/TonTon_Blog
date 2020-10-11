@@ -25,14 +25,37 @@ class SiteController {
     courses(req, res, next) {
         Course.find({})
             .then((courses) => {
-                res.render('courses', {
-                    courses: mutipleMongooseToObject(courses),
-                });
+                User.findOne({ _id: req.signedCookies.userId })
+                    .then((user) => {
+                        if (user) {
+                            res.locals.user = user;
+                            res.render('courses', {
+                                courses: mutipleMongooseToObject(courses),
+                            });
+                        }
+                        else{
+                            res.render('courses', {
+                                courses: mutipleMongooseToObject(courses),
+                            });
+                        }
+                    })
+                    .catch(next);            
             })
             .catch(next);
+        
     }
-    news(req,res){
-        res.render("news");
+    news(req, res, next){
+        User.findOne({ _id: req.signedCookies.userId })
+            .then((user) => {
+                if (user) {
+                    res.locals.user = user;
+                    res.render('news');
+                }
+                else{
+                    res.render('news');
+                }
+            })
+            .catch(next);
     }
     error(req, res) {
         res.render('error');
