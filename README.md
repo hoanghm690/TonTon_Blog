@@ -8,4 +8,5 @@ With main functions: Post, edit, delete, restore courses....
 * npm run watch
 
 ### Demo
-* Here is the demo link for my exercise using heroku: https://tonton-blog.herokuapp.com/ 
+Here is the demo link for my exercise using heroku: [TonTon-Blog](https://tonton-blog.herokuapp.com/)
+
