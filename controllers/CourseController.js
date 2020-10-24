@@ -1,5 +1,4 @@
 const Course = require('../models/Course');
-const User = require('../models/User');
 const { mongooseToObject } = require('../util/mongoose');
 class CourseController {
     // [GET] /courses/:slug
@@ -12,7 +11,6 @@ class CourseController {
             )
             .catch(next);
     }
-
     // [GET] /courses/create
     create(req, res, next) {
         res.render('courses/create');

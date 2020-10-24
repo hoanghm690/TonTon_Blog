@@ -1,48 +1,14 @@
 <div class="container">
-    <div class="mt-4 mb-5">
-        <h2>Nhớ em</h2>
-        <p> Anh nhớ em, anh tìm trong Facebook,
-            <br>
-            Lạc bóng hình, anh lại ghé Zing me.
-            <br>
-            Chiều dần buông xuống trên hàng phím F,
-            <br>
-            Đứng bên bờ phím số ngóng trông em.
-            <br>
-            Phía sau anh là cánh đồng ký tự,
-            <br>
-            Ghép chuỗi nào để có được tình yêu...
-            <br>
-            Tình anh đây mênh mang dòng bít số,
-            <br>
-            Request bằng phương thức GET đến em.
-            <br>
-            Web server giận hờn nên từ chối
-            <br>
-            Response về trang web chẳng image.
-            <br>
-            Switch ơi, chuyển đôi dòng tâm sự
-            <br>
-            Tin đến rồi, router chẳng chuyển đi...
-            <br>
-            Em xinh tươi, diễm kiều như Win bảy
-            <br>
-            Anh dại khờ, nâu sẫm tựa Ubuntu.
-            <br>
-            Chẳng lẻ nào dân lập trình Microsoft
-            <br>
-            Không sánh cùng trường phái code hãng Sun.
-            <br>
-            Dù Java hay dù là dotNet,
-            <br>
-            Chúng ta cùng viết nên những Software.
-            <br>
-            Em yêu ơi! Em yêu hãy quay về...
-            <br>
-            <br>
-            Ghi chú: Dãy phím F là dãy các phím Function từ F1 đến F12. Dãy phím số nằm dưới dãy phím Function. Giữa dãy
-            phím Function và dãy phím số có một dòng sông. Bên dưới dãy phím số là một đám phím ký tự, muốn chát với
-            người yêu thì phải gõ đám phím này để ghép thành những lời yêu thương.
-        </p>
+    <div class="mt-4 mb-5" style="min-height: 100vh">
+        <div class="col-lg-3">
+            <ul class="list-group">
+                <h5>TIN TỨC</h5>
+                {{#each news}}
+                <li class="list-group-item">
+                    <a class="list-group-link" href="/news/{{this.slug}}">{{this.name}}</a>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
     </div>
 </div>

@@ -3,7 +3,6 @@ const User = require('../models/User');
 const logout = require('express-passport-logout');
 
 const cloudinary = require('cloudinary').v2;
-const fs= require("fs");
 cloudinary.config({
     cloud_name: process.env.CLOUD_NAME,
     api_key: process.env.API_KEY,

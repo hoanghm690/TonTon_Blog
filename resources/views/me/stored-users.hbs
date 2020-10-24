@@ -29,6 +29,10 @@
                         {{{sortable "username" _sort}}}
                     </th>
                     <th scope="col">
+                        Gender
+                        {{{sortable "gender" _sort}}}
+                    </th>
+                    <th scope="col">
                         Avatar
                         {{{sortable "avatar" _sort}}}
                     </th>
@@ -48,6 +52,7 @@
                     </td>
                     {{!-- <th scope="row">{{this._id}}</th> --}}
                     <td>{{this.username}}</td>
+                    <td>{{this.gender}}</td>
                     <td>{{this.avatar}}</td>
                     <td>{{this.createdAt}}</td>
                     <td>
