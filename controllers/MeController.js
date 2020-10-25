@@ -1,4 +1,5 @@
 const Course = require('../models/Course');
+const New = require('../models/New');
 const User = require('../models/User');
 const { mutipleMongooseToObject } = require('../util/mongoose');
 
@@ -19,10 +20,10 @@ class MeController {
     }
     // [GET] /me/stored/news
     storedNews(req, res, next) {
-        Course.find({})
-            .then((courses) =>
+        New.find({})
+            .then((news) =>
                 res.render('me/stored-news', {
-                    courses: mutipleMongooseToObject(courses),
+                    news: mutipleMongooseToObject(news),
                 }),
             )
             .catch(next);

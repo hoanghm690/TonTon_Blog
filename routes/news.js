@@ -17,6 +17,15 @@ router.post(
     checkAdmin,
     newController.store,
 );
+router.post(
+    '/handle-form-actions',
+    requireLogin,
+    checkAdmin,
+    newController.handleFormActions,
+);
+router.get('/:id/edit', requireLogin, checkAdmin, newController.edit);
+router.put('/:id', requireLogin, checkAdmin, newController.update);
+router.delete('/:id', requireLogin, checkAdmin, newController.delete);
 router.get(
     '/:slug', requireLogin, checkUser, newController.show,
 );
